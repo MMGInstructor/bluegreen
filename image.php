@@ -6,8 +6,14 @@ $blue = imagecolorallocate($im, 0, 0, 255);
 $green = imagecolorallocate($im, 0, 255, 0);
 
 // Draw a filled rectangle
-imagefilledrectangle($im, 0, 0, 199, 199, $blue);
-//imagefilledrectangle($im, 0, 0, 199, 199, $green);
+$color=getenv('COLOR')
+if ($color == 'blue') {
+  imagefilledrectangle($im, 0, 0, 199, 199, $blue);
+} elseif ($color == 'green') {
+  imagefilledrectangle($im, 0, 0, 199, 199, $green);
+} else {
+  imagefilledrectangle($im, 0, 0, 199, 199, $blue);
+}
 
 // Save the image
 header('Content-Type: image/png');
